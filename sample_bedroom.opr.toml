@@ -1,0 +1,91 @@
+# Bedrooms operation file
+
+# DESC: Define infiltration and ventilation rates
+[air_flows]
+  
+  # DESC: Define thermostatic controls
+  # Based on the zone's internal temperature
+  # [air_flows.controls] is optional
+  [air_flows.controls]
+    # setpoints are defined in C (Celsius Degrees)
+    low_setpoint = 0.0
+    mid_setpoint = 22.0
+    high_setpoint = 26.0
+  
+  # DESC: Define infiltration rates
+  # Infiltration rates are from outside
+  [air_flows.infiltration]
+    # rates are specified in AC/h
+    low_rate = 0.08 # standard rate for PassivHaus
+    mid_rate = 0.5
+    high_rate  = 2.5
+    # use { rate = <float> } if [air_flows.controls].nil?
+
+  # [air_flows.ventilation]
+      # same syntax as above
+      # TODO: still need to populate the crap ESP-r syntax for ventilation values
+      
+# DESC: Define casual gains
+# Casual gains are heat gains, specifieds in W (no other shit is supported atm)
+# TODO: find better way to do periods?
+# TODO: add latent_gain support
+[casual_gains]
+
+  [casual_gains.defaults]
+    radiant_fraction = 0.5
+    convective_fraction = 0.5
+    
+    # Use [casual_gains.every_day] to have one daytipe only
+    # TODO: add support for these:
+    # [casual_gains.weekend]
+    # [casual_gains.every_day]
+    # [casual_gains.weekday]
+    # [casual_gains.saturday]
+    # [casual_gains.sunday]
+    # ---------------------------
+    [casual_gains.every_day] 
+    
+      # DESC: casual gains due to human occupancy
+      [casual_gains.occupants] # Note ESp-r gain_type_code = 1
+        
+        [casual_gains.occupants.period_1] # periods are defired like this
+          period_start = 0 # hour at start of period (0-24), no gay floats here
+          sensible_gain = 400
+          # TODO: support no_of_people
+    
+        [casual_gains.occupants.period_2]
+          period_start = 800
+          sensible_gain = 0
+        
+        [casual_gains.occupants.period_3]
+          period_start = 24
+          sensible_gain = 400
+        
+      # DESC: casual gains due to lighting use
+      [casual_gains.lighting] # Note ESp-r gain_type_code = 2
+
+        [casual_gains.lighting.period_1]
+          period_start =
+          sensible_gain =
+          
+        [casual_gains.lighting.period_2]
+          period_start =
+          sensible_gain =
+          
+        [casual_gains.lighting.period_3]
+          period_start =
+          sensible_gain =
+  
+      [casual_gains.equipment] # Note ESp-r gain_type_code = 3
+        # these should overwrite the defaults
+        radiant_fraction = 0.5  
+        convective_fraction = 0.5
+        
+        [casual_gains.equipment.period_1]
+          period_start =
+          sensible_gain =
+          
+        [casual_gains.equipment.period_1]
+          period_start =
+          sensible_gain =
+        
