@@ -1,0 +1,16 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    blankslate (2.1.2.4)
+    parslet (1.5.0)
+      blankslate (~> 2.0)
+    thor (0.17.0)
+    toml (0.0.3)
+      parslet
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  thor
+  toml (~> 0.0.3)
