@@ -54,7 +54,7 @@
           # TODO: support no_of_people
     
         [casual_gains.occupants.period_2]
-          period_start = 800
+          period_start = 8
           sensible_gain = 0
         
         [casual_gains.occupants.period_3]
@@ -65,27 +65,31 @@
       [casual_gains.lighting] # Note ESp-r gain_type_code = 2
 
         [casual_gains.lighting.period_1]
-          period_start =
-          sensible_gain =
+          period_start = 0
+          sensible_gain = 0
           
         [casual_gains.lighting.period_2]
-          period_start =
-          sensible_gain =
+          period_start = 7
+          sensible_gain = 20
           
         [casual_gains.lighting.period_3]
-          period_start =
-          sensible_gain =
+          period_start = 8
+          sensible_gain = 0
+        
+        [casual_gains.lighting.period_4]
+          period_start = 23
+          sensible_gain = 20
   
       [casual_gains.equipment] # Note ESp-r gain_type_code = 3
         # these should overwrite the defaults
         radiant_fraction = 0.5  
         convective_fraction = 0.5
         
-        [casual_gains.equipment.period_1]
-          period_start =
-          sensible_gain =
-          
-        [casual_gains.equipment.period_1]
-          period_start =
-          sensible_gain =
-        
+        # [casual_gains.equipment.period_1]
+        #   period_start =
+        #   sensible_gain =
+        #   
+        # [casual_gains.equipment.period_1]
+        #   period_start =
+        #   sensible_gain =
+        # 
