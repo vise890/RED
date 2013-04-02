@@ -20,7 +20,11 @@
     mid_rate = 0.5
     high_rate  = 2.5
     # use { rate = <float> } if [air_flows.controls].nil?
-
+    
+    [air_flows.infiltration.every_day.period1]
+      start = 0
+      rate = 0.08
+      
   # [air_flows.ventilation]
       # same syntax as above
       # TODO: still need to populate the crap ESP-r syntax for ventilation values
@@ -49,35 +53,35 @@
       [casual_gains.occupants] # Note ESp-r gain_type_code = 1
         
         [casual_gains.occupants.period_1] # periods are defired like this
-          period_start = 0 # hour at start of period (0-24), no gay floats here
+          start = 0 # hour at start of period (0-24), no gay floats here
           sensible_gain = 400
           # TODO: support no_of_people
     
         [casual_gains.occupants.period_2]
-          period_start = 8
+          start = 8
           sensible_gain = 0
         
         [casual_gains.occupants.period_3]
-          period_start = 24
+          start = 24
           sensible_gain = 400
         
       # DESC: casual gains due to lighting use
       [casual_gains.lighting] # Note ESp-r gain_type_code = 2
 
         [casual_gains.lighting.period_1]
-          period_start = 0
+          start = 0
           sensible_gain = 0
           
         [casual_gains.lighting.period_2]
-          period_start = 7
+          start = 7
           sensible_gain = 20
           
         [casual_gains.lighting.period_3]
-          period_start = 8
+          start = 8
           sensible_gain = 0
         
         [casual_gains.lighting.period_4]
-          period_start = 23
+          start = 23
           sensible_gain = 20
   
       [casual_gains.equipment] # Note ESp-r gain_type_code = 3
